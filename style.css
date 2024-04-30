@@ -1,0 +1,92 @@
+:root {
+    --cell-size: 100px;
+
+    --color: #81c3fd; /* for hover */
+    --color-set: #0275d8; /* when set */
+    --l: 10px; /* X line-width */
+}
+
+body {
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3rem;
+    padding-top: 1em;
+}
+
+.board {
+    width: 100vw;
+    height: 60vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto)
+}
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+/* remove border for edges */
+.cell:nth-child(1), .cell:nth-child(2), .cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:nth-child(1), .cell:nth-child(4), .cell:nth-child(7) {
+    border-left: none;
+}
+
+.cell:nth-child(3), .cell:nth-child(6), .cell:nth-child(9) {
+    border-right: none;
+}
+
+.cell:nth-child(7), .cell:nth-child(8), .cell:nth-child(9) {
+    border-bottom: none;
+}
+
+.winning-message {
+    display: none;
+    position: fixed;
+    top: 10em;
+    left: 10em;
+    right: 10em;
+    bottom: 10em;
+    background-color: var(--color-set);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 5rem;
+    font-family: 'Courier New', Courier, monospace;
+    flex-direction: column;
+}
+
+#restart {
+    border-radius: 10px;
+    font-size: 2rem;
+    background-color: white;
+    border: 2px solid var(--color-set);
+    padding: .25em .5em;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+#restart:hover {
+    background-color: var(--color-set);
+    color: white;
+    border-color: white;
+}
